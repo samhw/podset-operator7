@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: podset-operator7
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: podset-operator7
+  template:
+    metadata:
+      labels:
+        name: podset-operator7
+    spec:
+      serviceAccountName: podset-operator7
+      containers:
+        - name: podset-operator7
+          # Replace this with the built image name
+          image: REPLACE_IMAGE
+          command:
+          - podset-operator7
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "podset-operator7"

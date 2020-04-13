@@ -1,0 +1,11 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: podset-operator7
+subjects:
+- kind: ServiceAccount
+  name: podset-operator7
+roleRef:
+  kind: Role
+  name: podset-operator7
+  apiGroup: rbac.authorization.k8s.io
