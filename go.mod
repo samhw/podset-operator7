@@ -1,4 +1,4 @@
-module github.com/samhw
+module github.com/samhw/podset-operator7
 
 go 1.13
 
